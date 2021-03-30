@@ -1,11 +1,18 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "37c5c538-7b98-46ba-8c4b-c6c1340d1dc7"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "TestPage": {
+    "TesPage": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -13,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/TestPage",
+            "outputPath": "dist/TesPage",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -24,7 +31,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -61,18 +68,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "TestPage:build"
+            "browserTarget": "TesPage:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "TestPage:build:production"
+              "browserTarget": "TesPage:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "TestPage:build"
+            "browserTarget": "TesPage:build"
           }
         },
         "test": {
@@ -87,7 +94,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           }
@@ -109,16 +116,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "TestPage:serve"
+            "devServerTarget": "TesPage:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "TestPage:serve:production"
+              "devServerTarget": "TesPage:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "TestPage"
+  "defaultProject": "TesPage"
 }

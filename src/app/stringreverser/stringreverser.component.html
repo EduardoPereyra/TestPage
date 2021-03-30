@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Word Reverser</h1>
+  <div class="form">
+    <div class="word-form">
+      <form>
+        <input type="text" name="word" id="word" placeholder="Word to reverse" [(ngModel)]="wordToReverse">
+        <button type="submit" (click)="reverse()">Reverse</button>
+      </form>
+    </div>
+    <div class="words-container" [@words]="words.length">
+      <table>
+        <thead>
+          <th>Word inserted</th>
+          <th>Word reversed</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of words; let i = index" (click)="remove(i)">
+            <td>{{item.insertedword}}</td>
+            <td>{{item.reverseword}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

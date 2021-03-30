@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --background-color: darkseagreen;
+  --global-background-color: lightblue;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--global-background-color);
+}

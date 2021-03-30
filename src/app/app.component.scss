@@ -1,0 +1,14 @@
+$button-hover: #fff;
+
+div {
+  font-size: 1.5rem;
+  background-color: var(--background-color);
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  button:hover {
+    background-color: $button-hover;
+  }
+}
