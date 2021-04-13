@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { DecimalBinary } from '../utils/decimalbinary';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class NumberlistService {
 
   constructor() { }
 
-  changeWord(number):void {
+  changeWord(number:Array<DecimalBinary>):void {
     this.numbers.next(number)
   }
 }
