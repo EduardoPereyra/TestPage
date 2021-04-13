@@ -1,3 +1,5 @@
+import { ErrorComponent } from './pages/error/error.component';
+import { SentencegeneratorComponent } from './pages/sentencegenerator/sentencegenerator.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DecimaltobinaryComponent } from './pages/decimaltobinary/decimaltobinary.component';
@@ -21,8 +23,12 @@ const routes: Routes = [
     component: DecimaltobinaryComponent
   },
   {
+    path: 'sentencegenerator',
+    component: SentencegeneratorComponent
+  },
+  {
     path: '**',
-    component: StringreverserComponent
+    component: ErrorComponent
   },
 ];
 
