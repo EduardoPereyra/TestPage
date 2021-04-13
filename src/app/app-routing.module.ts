@@ -1,12 +1,9 @@
+import { DecimaltobinaryComponent } from './decimaltobinary/decimaltobinary.component';
 import { StringreverserComponent } from './stringreverser/stringreverser.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {
-    path: '**',
-    component: StringreverserComponent
-  },
   {
     path: '',
     component: StringreverserComponent
@@ -19,7 +16,14 @@ const routes: Routes = [
     path: 'stringreverser/:word',
     component: StringreverserComponent
   },
-
+  {
+    path: 'decimaltobinary',
+    component: DecimaltobinaryComponent
+  },
+  {
+    path: '**',
+    component: StringreverserComponent
+  },
 ];
 
 @NgModule({

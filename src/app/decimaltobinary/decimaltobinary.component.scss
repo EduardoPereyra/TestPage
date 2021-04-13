@@ -1,0 +1,43 @@
+.container {
+  width: 100vw;
+  text-align: center;
+  padding-top: 2rem;
+
+  .form {
+    text-align: center;
+    font-size: 1.2rem;
+    margin: auto;
+    border: 2px solid darkolivegreen;
+    margin-top: 5rem;
+    height: 100%;
+    background-color: var(--background-color);
+    padding: 2em 2rem;
+
+    .numbers-form {
+      padding: 1.5em 2rem;
+
+      input {
+        margin-right: 2rem;
+      }
+
+      input,
+      button {
+        padding: 1rem;
+      }
+    }
+
+    tr{
+      border: 1rem solid var(--background-color);
+    }
+
+    td {
+      background-color: var(--global-background-color);
+      padding: 1rem;
+    }
+
+    .numbers-container table {
+      width: 100%;
+    }
+  }
+
+}

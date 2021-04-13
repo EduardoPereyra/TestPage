@@ -7,10 +7,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { StringreverserComponent } from './stringreverser/stringreverser.component';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { WordslistService } from './stringreverser/service/wordslist.service';
+import { DecimaltobinaryComponent } from './decimaltobinary/decimaltobinary.component';
 @NgModule({
   declarations: [
     AppComponent,
-    StringreverserComponent
+    StringreverserComponent,
+    DecimaltobinaryComponent
   ],
   imports: [
     BrowserModule,
