@@ -34,8 +34,8 @@ import { DecimalBinary } from './utils/decimalbinary';
 })
 export class DecimaltobinaryComponent implements OnInit {
 
-  numberToBinary:number = null;
-  numbers:Array<DecimalBinary> = [];
+  numberToBinary:number;
+  numbers:Array<DecimalBinary>;
   errror:boolean;
 
   constructor(private router:ActivatedRoute, private _numberService: NumberlistService) {
@@ -46,6 +46,8 @@ export class DecimaltobinaryComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.numberToBinary= null;
+    this.numbers = [];
     this._numberService.word.subscribe(res => this.numbers = res);
     this._numberService.changeWord(this.numbers);
   }

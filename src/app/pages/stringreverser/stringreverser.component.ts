@@ -34,8 +34,8 @@ import { Word } from './utils/interface/word';
 })
 export class StringreverserComponent implements OnInit {
 
-  wordToReverse:string = '';
-  words:Array<Word> = [];
+  wordToReverse:string;
+  words:Array<Word>;
 
   constructor(private router:ActivatedRoute, private _wordsService: WordslistService) {
     this.router.params.subscribe(res => {
@@ -45,6 +45,8 @@ export class StringreverserComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.wordToReverse = '';
+    this.words = [];
     this._wordsService.word.subscribe(res => this.words = res);
     this._wordsService.changeWord(this.words);
   }
