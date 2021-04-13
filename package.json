@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng build --prod --output-path docs --base-href /TestPage/ && angular-cli-ghpages --branch gh-pages"
+    "deploy": "ng build --prod --baseHref /TestPage/ && angular-cli-ghpages --branch gh-pages"
   },
   "private": true,
   "dependencies": {
