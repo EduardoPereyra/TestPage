@@ -11,7 +11,7 @@ export class WordslistService {
 
   constructor() { }
 
-  changeWord(word) {
+  changeWord(word):void {
     this.words.next(word)
   }
 }

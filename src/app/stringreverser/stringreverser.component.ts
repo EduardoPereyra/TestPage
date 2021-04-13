@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { trigger, style, transition, animate, keyframes, query, stagger } from "@angular/animations";
 import { ActivatedRoute } from '@angular/router';
 import { WordslistService } from './service/wordslist.service';
+import { Word } from './utils/interface/word';
 
 @Component({
   selector: 'app-stringreverser',
@@ -48,29 +49,19 @@ export class StringreverserComponent implements OnInit {
     this._wordsService.changeWord(this.words);
   }
 
-  reverse() {
+  reverse():void {
     if (this.wordToReverse) {
-      let word:Word = new Word(this.wordToReverse.toUpperCase(),
-            this.wordToReverse.split('').reverse().join('').toUpperCase());
+      let word:Word = {insertedword: this.wordToReverse.toUpperCase(),
+            reverseword:this.wordToReverse.split('').reverse().join('').toUpperCase()};
       this.words.push(word);
       this.wordToReverse = '';
       this._wordsService.changeWord(this.words);
     }
   }
 
-  remove(i:number) {
+  remove(i:number):void {
     this.words.splice(i,1);
     this._wordsService.changeWord(this.words);
   }
 
 }
-
-class Word {
-  insertedword:string;
-  reverseword:string
-  constructor(insertedword: string, reverseword:string) {
-    this.insertedword = insertedword;
-    this.reverseword = reverseword;
-  }
-}
-
