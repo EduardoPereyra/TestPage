@@ -36,7 +36,7 @@ export class DecimaltobinaryComponent implements OnInit {
 
   numberToBinary:number;
   numbers:Array<DecimalBinary>;
-  errror:boolean;
+  error:boolean;
 
   constructor(private router:ActivatedRoute, private _numberService: NumberlistService) {
     this.router.params.subscribe(res => {
@@ -59,8 +59,6 @@ export class DecimaltobinaryComponent implements OnInit {
       this.numbers.push(word);
       this.numberToBinary = null;
       this._numberService.changeWord(this.numbers);
-    } else {
-
     }
   }
 
