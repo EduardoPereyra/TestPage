@@ -1,0 +1,51 @@
+<div class="inputs">
+  <div>
+    <form class="example-form">
+      <label for="sizeXA">Matriz A</label>
+      <mat-form-field class="example-full-width">
+        <mat-label>Columnas</mat-label>
+        <input matInput maxlength="3" placeholder="Inserte cantidad" type="number" name="sizeXA" id="sizeXA" [(ngModel)]="sizeXA">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Filas</mat-label>
+        <input matInput maxlength="3" placeholder="Inserte cantidad" type="number" name="sizeYA" id="sizeYA" [(ngModel)]="sizeYA">
+      </mat-form-field>
+
+      <label for="sizeXB">Matriz B</label>
+      <mat-form-field class="example-full-width">
+        <mat-label>Columnas</mat-label>
+        <input matInput maxlength="3" placeholder="Inserte cantidad" type="number" name="sizeXB" id="sizeXB" [(ngModel)]="sizeXB">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Filas</mat-label>
+        <input matInput maxlength="3" placeholder="Inserte cantidad" type="number" name="sizeYB" id="sizeYB" [(ngModel)]="sizeYB">
+      </mat-form-field>
+    </form>
+  </div>
+  <h1 class="error" *ngIf="error">{{msgError}}</h1>
+  <button type="submit" (click)="createMatrix()">Crear</button>
+</div>
+<div *ngIf="showMatriz" class="resultcontainer">
+  <div class="matriz">
+    <div class="inputs">
+      <table>
+        <tr *ngFor="let i of numSequence(sizeYA)">
+          <td *ngFor="let j of numSequence(sizeXA)">X</td>
+        </tr>
+      </table>
+      <table>
+        <tr *ngFor="let i of numSequence(sizeYB)">
+          <td *ngFor="let j of numSequence(sizeXB)">X</td>
+        </tr>
+      </table>
+    </div>
+    <div class="result" *ngIf="result">
+      <table>
+        <tr *ngFor="let i of numSequence(sizeYA)">
+          <td *ngFor="let j of numSequence(sizeXB)">X</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <button class="multiply" type="submit" (click)="multiply()">Multiplicar</button>
+</div>

@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DecimaltobinaryComponent } from './pages/decimaltobinary/decimaltobinary.component';
 import { StringreverserComponent } from './pages/stringreverser/stringreverser.component';
+import { MatrixmultiplicatorComponent } from './pages/matrixmultiplicator/matrixmultiplicator.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,10 @@ const routes: Routes = [
   {
     path: 'sentencegenerator',
     component: SentencegeneratorComponent
+  },
+  {
+    path: 'matrixmultiplicator',
+    component: MatrixmultiplicatorComponent
   },
   {
     path: '**',

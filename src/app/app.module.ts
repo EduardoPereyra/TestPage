@@ -10,21 +10,32 @@ import { DecimaltobinaryComponent } from './pages/decimaltobinary/decimaltobinar
 import { WordslistService } from './pages/stringreverser/service/wordslist.service';
 import { SentencegeneratorComponent } from './pages/sentencegenerator/sentencegenerator.component';
 import { ErrorComponent } from './pages/error/error.component';
+import { MatrixmultiplicatorComponent } from './pages/matrixmultiplicator/matrixmultiplicator.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
+
+const components = [
+  AppComponent,
+  StringreverserComponent,
+  DecimaltobinaryComponent,
+  SentencegeneratorComponent,
+  ErrorComponent,
+  MatrixmultiplicatorComponent
+];
+
+const modules = [
+  BrowserModule,
+  AppRoutingModule,
+  FormsModule,
+  NgbModule,
+  BrowserAnimationsModule,
+  MatInputModule,
+  MatFormFieldModule
+];
 @NgModule({
-  declarations: [
-    AppComponent,
-    StringreverserComponent,
-    DecimaltobinaryComponent,
-    SentencegeneratorComponent,
-    ErrorComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    NgbModule,
-    BrowserAnimationsModule
-  ],
+  declarations: [...components],
+  imports: [...modules],
   providers: [WordslistService],
   bootstrap: [AppComponent]
 })
