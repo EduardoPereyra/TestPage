@@ -1,0 +1,49 @@
+<div>
+  <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-tabs justify-content-center">
+    <li ngbDropdown class="nav-item">
+      <a href (click)="false" class="nav-link" ngbDropdownToggle>NEWBIE</a>
+      <div ngbDropdownMenu>
+        <button ngbDropdownItem routerLink="stringreverser">Manual String Reverser</button>
+        <button ngbDropdownItem routerLink="decimaltobinary">Decimal to Binary</button>
+      </div>
+    </li>
+    <li ngbDropdown class="nav-item">
+      <a href (click)="false" class="nav-link" ngbDropdownToggle>BEGGINER</a>
+      <div ngbDropdownMenu>
+        <button ngbDropdownItem routerLink="sentencegenerator">Sentence Generator</button>
+        <button ngbDropdownItem routerLink="matrixmultiplicator">Matrix Multiplicator</button>
+        <button ngbDropdownItem routerLink="searchinstring">Search within a String</button>
+      </div>
+    </li>
+    <li ngbDropdown class="nav-item">
+      <a href (click)="false" class="nav-link" ngbDropdownToggle>INTERMEDIATE</a>
+      <div ngbDropdownMenu>
+        <button ngbDropdownItem routerLink="todoapp">TO-DO App</button>
+        <button ngbDropdownItem routerLink="quizapp">Quiz App</button>
+        <button ngbDropdownItem routerLink="noteapp">Note App</button>
+        <button ngbDropdownItem routerLink="musicplayer">Music Player</button>
+        <button ngbDropdownItem routerLink="currencyconverter">Currency Converter</button>
+        <button ngbDropdownItem routerLink="speedtypingtest">Speed Typing Test</button>
+      </div>
+    </li>
+    <li ngbDropdown class="nav-item">
+      <a href (click)="false" class="nav-link" ngbDropdownToggle>ADVANCED</a>
+      <div ngbDropdownMenu>
+        <button ngbDropdownItem routerLink="chat">Real-Time Chat</button>
+        <button ngbDropdownItem routerLink="ecommerceapp">E-Commerce App</button>
+        <button ngbDropdownItem routerLink="chessgame">Chess Game</button>
+        <button ngbDropdownItem routerLink="onlinedocumenteditor">Online Document Editor</button>
+      </div>
+    </li>
+    <li ngbDropdown class="nav-item">
+      <a href (click)="false" class="nav-link" ngbDropdownToggle>EXPERT</a>
+      <div ngbDropdownMenu>
+        <button ngbDropdownItem routerLink="tradingbot">Trading Bot</button>
+        <button ngbDropdownItem routerLink="netflix">Netflix</button>
+        <button ngbDropdownItem routerLink="fakenews">Fake News Detector</button>
+      </div>
+    </li>
+  </ul>
+
+</div>
+<router-outlet></router-outlet>

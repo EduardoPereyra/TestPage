@@ -3,8 +3,13 @@
   <div class="form">
     <div class="word-form">
       <form>
-        <input type="text" name="word" id="word" placeholder="Word to reverse" [(ngModel)]="wordToReverse">
-        <button type="submit" (click)="reverse()">Reverse</button>
+        <div class="text-input">
+          <span [ngClass]="{'complete': wordToReverse !== ''}">
+            <input type="text" name="word" id="word"
+                   placeholder="Word to reverse" [(ngModel)]="wordToReverse">
+          </span>
+        </div>
+        <app-custom-button [text]="'Reverse'" (click)="reverse()" type="submit"></app-custom-button>
       </form>
     </div>
     <div class="words-container" [@words]="words.length">

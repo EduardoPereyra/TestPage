@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { trigger, style, transition, animate, keyframes, query, stagger } from "@angular/animations";
-import { ActivatedRoute } from '@angular/router';
-import { WordslistService } from './service/wordslist.service';
-import { Word } from './utils/interface/word';
+import {Component, OnInit} from '@angular/core';
+import {trigger, style, transition, animate, keyframes, query, stagger} from '@angular/animations';
+import {ActivatedRoute} from '@angular/router';
+import {WordslistService} from './service/wordslist.service';
+import {Word} from './utils/interface/word';
 
 @Component({
   selector: 'app-stringreverser',
@@ -34,36 +34,38 @@ import { Word } from './utils/interface/word';
 })
 export class StringreverserComponent implements OnInit {
 
-  wordToReverse:string;
-  words:Array<Word>;
+  wordToReverse: string;
+  words: Array<Word>;
 
-  constructor(private router:ActivatedRoute, private _wordsService: WordslistService) {
+  constructor(private router: ActivatedRoute, private wordsService: WordslistService) {
     this.router.params.subscribe(res => {
       this.wordToReverse = res.word;
       this.reverse();
-    })
+    });
   }
 
   ngOnInit(): void {
     this.wordToReverse = '';
     this.words = [];
-    this._wordsService.word.subscribe(res => this.words = res);
-    this._wordsService.changeWord(this.words);
+    this.wordsService.word.subscribe(res => this.words = res);
+    this.wordsService.changeWord(this.words);
   }
 
-  reverse():void {
+  reverse(): void {
     if (this.wordToReverse) {
-      let word:Word = {insertedword: this.wordToReverse.toUpperCase(),
-            reverseword:this.wordToReverse.split('').reverse().join('').toUpperCase()};
+      const word: Word = {
+        insertedword: this.wordToReverse.toUpperCase(),
+        reverseword: this.wordToReverse.split('').reverse().join('').toUpperCase()
+      };
       this.words.push(word);
       this.wordToReverse = '';
-      this._wordsService.changeWord(this.words);
+      this.wordsService.changeWord(this.words);
     }
   }
 
-  remove(i:number):void {
-    this.words.splice(i,1);
-    this._wordsService.changeWord(this.words);
+  remove(i: number): void {
+    this.words.splice(i, 1);
+    this.wordsService.changeWord(this.words);
   }
 
 }

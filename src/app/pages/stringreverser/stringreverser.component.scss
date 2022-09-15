@@ -6,32 +6,30 @@
   .form {
     text-align: center;
     font-size: 1.2rem;
-    margin: auto;
-    border: 2px solid darkolivegreen;
-    margin-top: 5rem;
+    border: 2px solid var(--secondary-color);
+    margin: 2rem auto auto;
     height: 100%;
-    background-color: var(--background-color);
+    background-color: var(--background-color-color);
     padding: 2em 2rem;
 
     .word-form {
       padding: 1.5em 2rem;
+      form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-      input {
-        margin-right: 2rem;
-      }
-
-      input,
-      button {
-        padding: 1rem;
+        .text-input {
+          margin-right: 2rem;
+        }
       }
     }
 
     tr{
-      border: 1rem solid var(--background-color);
+      border: 1px solid var(--secondary-color);
     }
 
     td {
-      background-color: var(--global-background-color);
       padding: 1rem;
     }
 

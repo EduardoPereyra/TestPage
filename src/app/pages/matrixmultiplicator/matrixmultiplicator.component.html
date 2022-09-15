@@ -23,7 +23,8 @@
     </form>
   </div>
   <h1 class="error" *ngIf="error">{{msgError}}</h1>
-  <button type="submit" (click)="createMatrix()">Crear</button>
+  <app-custom-button [text]="'Crear'" (click)="createMatrix()" type="submit"></app-custom-button>
+
 </div>
 <div *ngIf="showMatriz" class="resultcontainer">
   <div class="matriz">
@@ -47,5 +48,7 @@
       </table>
     </div>
   </div>
-  <button class="multiply" type="submit" (click)="multiply()">Multiplicar</button>
+<!--  <button class="multiply" type="submit" (click)="multiply()">Multiplicar</button>-->
+  <app-custom-button [text]="'Multiplicar'" (click)="multiply()" type="submit"></app-custom-button>
+
 </div>

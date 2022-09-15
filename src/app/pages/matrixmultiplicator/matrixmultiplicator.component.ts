@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-matrixmultiplicator',
@@ -6,16 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./matrixmultiplicator.component.scss']
 })
 export class MatrixmultiplicatorComponent implements OnInit {
-  sizeXA:number;
-  sizeYA:number;
-  sizeXB:number;
-  sizeYB:number;
-  msgError:string;
-  error:boolean;
-  showMatriz:boolean;
-  result:boolean;
+  sizeXA: number;
+  sizeYA: number;
+  sizeXB: number;
+  sizeYB: number;
+  msgError: string;
+  error: boolean;
+  showMatriz: boolean;
+  result: boolean;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
     this.sizeXA = null;
@@ -28,14 +29,14 @@ export class MatrixmultiplicatorComponent implements OnInit {
     this.result = false;
   }
 
-  createMatrix():void{
+  createMatrix(): void {
     this.result = false;
     if (this.sizeXA && this.sizeXB && this.sizeYA && this.sizeYB) {
-      if(this.sizeYB > 10 || this.sizeYA > 10 || this.sizeXB > 10|| this.sizeXB > 10){
+      if (this.sizeYB > 10 || this.sizeYA > 10 || this.sizeXB > 10 || this.sizeXB > 10) {
         this.msgError = 'Inserte una cantidad menor a 10';
         this.error = true;
         this.result = false;
-      } else{
+      } else {
         this.error = false;
         this.showMatriz = true;
       }
@@ -46,15 +47,15 @@ export class MatrixmultiplicatorComponent implements OnInit {
     }
   }
 
-  multiply():void{
-    if(this.sizeYB > 10 || this.sizeXA > 10){
+  multiply(): void {
+    if (this.sizeYB > 10 || this.sizeXA > 10) {
       this.msgError = 'Inserte una cantidad menor a 10';
       this.error = true;
       this.result = false;
-    } else if(this.sizeXA === this.sizeYB){
+    } else if (this.sizeXA === this.sizeYB) {
       this.error = false;
       this.result = true;
-    } else{
+    } else {
       this.msgError = 'La cantidad de columnas en A tiene que ser igual a la cantidad de filas en B';
       this.error = true;
       this.result = false;

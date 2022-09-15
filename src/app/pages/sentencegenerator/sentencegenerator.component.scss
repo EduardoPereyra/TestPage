@@ -1,8 +1,8 @@
-div{
+.container{
   text-align: center;
-  margin: auto;
-  margin-top: 2rem;
-  button {
+  margin: 2rem auto auto;
+
+  app-custom-button {
     padding: 20px;
     font-size: 1.5rem;
   }

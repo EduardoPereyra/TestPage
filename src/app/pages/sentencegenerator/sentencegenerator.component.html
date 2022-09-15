@@ -1,5 +1,12 @@
-<div>
-  <button type="submit" (click)="generateSentence()">Generate</button>
+<div class="container">
+  <h1>Sentence generator</h1>
+  <div>
+    <app-custom-button [text]="'Spanish'" [backgroundColor]="'#533483'" (click)="toggleFlip('english')"
+                       *ngIf="language === 'spanish'"></app-custom-button>
+    <app-custom-button [text]="'English'" [backgroundColor]="'#533483'" (click)="toggleFlip('spanish')"
+                       *ngIf="language === 'english'"></app-custom-button>
+  </div>
+  <app-custom-button [text]="'Generate'" (click)="generateSentence()" type="submit"></app-custom-button>
   <ul>
     <li *ngFor="let sentence of sentences">{{sentence}}</li>
   </ul>

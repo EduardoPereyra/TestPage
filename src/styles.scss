@@ -1,7 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
-  --background-color: darkseagreen;
-  --global-background-color: lightblue;
+  --primary-text-color: white;
+  --secondary-text-color: #16213E;
+  --primary-color: #E94560;
+  --secondary-color: #533483;
+  --tertiary-color: #0F3460;
+  --background-color: #16213E;
 }
 
 /* Importing Bootstrap SCSS file. */
@@ -12,8 +16,37 @@ html {
 }
 
 body {
-  background-color: var(--global-background-color);
+  background-color: var(--background-color);
+  color: var(--primary-text-color);
 }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.text-input span {
+  font-size: 16px;
+
+  input {
+    padding: 8px 20px 8px 5px;
+    border: none;
+    background-color: transparent;
+    color: var(--primary-text-color);
+  }
+
+  input:focus-visible {
+    outline: none;
+  }
+}
+
+.text-input span:after {
+  display:block;
+  content: '';
+  border-bottom: solid 2px var(--primary-color);
+  transform: scaleX(0);
+  transition: transform 250ms ease-in-out;
+}
+
+.text-input span:hover:after, .text-input .complete:after {
+  transform: scaleX(1);
+}
+
