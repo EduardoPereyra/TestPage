@@ -1,0 +1,72 @@
+<div class="container">
+  <table>
+    <thead>
+    <tr>
+      <th>TODO</th>
+      <th>IN PROGRESS</th>
+      <th>IN REVISION</th>
+      <th>DONE</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <div class="list-container" cdkDropList
+             #todoList="cdkDropList"
+             [cdkDropListData]="todoCards"
+             [cdkDropListConnectedTo]="[todoList, inProgressList, inRevisionList, doneList]"
+             (cdkDropListDropped)="drop($event)">
+          <div
+            class="list">
+            <div class="card" *ngFor="let item of todoCards" cdkDrag>{{item}}</div>
+          </div>
+          <div class="new-card">
+            <div class="text-input">
+              <span [ngClass]="{'complete': newCard !== ''}">
+                <input type="text" name="word" id="word"
+                       placeholder="New card" [(ngModel)]="newCard">
+              </span>
+            </div>
+            <app-custom-button [text]="'Add'" (click)="add()" type="submit"></app-custom-button>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div class="list-container" cdkDropList
+             #inProgressList="cdkDropList"
+             [cdkDropListData]="inProgressCards"
+             [cdkDropListConnectedTo]="[todoList, inProgressList, inRevisionList, doneList]"
+             (cdkDropListDropped)="drop($event)">
+          <div class="list">
+            <div class="card" *ngFor="let item of inProgressCards" cdkDrag>{{item}}</div>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div class="list-container" cdkDropList
+             #inRevisionList="cdkDropList"
+             [cdkDropListData]="inRevisionCards"
+             [cdkDropListConnectedTo]="[todoList, inProgressList, inRevisionList, doneList]"
+             (cdkDropListDropped)="drop($event)">
+          <div class="list">
+            <div class="card" *ngFor="let item of inRevisionCards" cdkDrag>{{item}}</div>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div class="list-container"
+             cdkDropList
+             #doneList="cdkDropList"
+             [cdkDropListData]="doneCards"
+             [cdkDropListConnectedTo]="[todoList, inProgressList, inRevisionList, doneList]"
+             (cdkDropListDropped)="drop($event)">
+          <div class="list">
+            <div class="card done" *ngFor="let item of doneCards" cdkDrag>{{item}}</div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+
+  </table>
+</div>
