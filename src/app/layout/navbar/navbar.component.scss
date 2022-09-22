@@ -6,6 +6,10 @@ div {
     height: 8vh;
     align-items: center;
 
+    li div {
+      border: 1px solid var(--primary-text-color);
+    }
+
     a {
       text-decoration: none;
       color: var(--primary-text-color);

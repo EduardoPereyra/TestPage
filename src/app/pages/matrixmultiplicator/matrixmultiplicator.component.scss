@@ -1,16 +1,22 @@
 .inputs {
   text-align: center;
-  margin: auto;
+  margin: 2rem auto auto;
   font-size: 1.4rem;
 
-  div {
-    margin: 30px;
+  .matrix-inputs-container {
+    margin: auto;
+    width: 35vw;
     form{
-      width: 200px;
-      display: inline-grid;
-      mat-form-field input::-webkit-outer-spin-button,
-      mat-form-field input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      div  {
+        margin: 10px 10px 15px;
+      }
+      .matrix {
+        margin-top: 20px;
+      }
+      .text-input {
+        margin: 0;
       }
     }
   }
@@ -26,26 +32,16 @@
 }
 
 .resultcontainer {
+  display: flex;
+  align-items: center;
+
   .matriz {
     margin: 40px;
     display: inline-flex;
-    table {
-      td {
-        border: 2px solid black;
-        padding: 1rem;
-      }
-    }
+
     .inputs {
       display: inline-flex;
       margin: 40px;
-      table {
-        margin: 0 20px;
-
-        tr td {
-          height: 30px;
-          width: 30px;
-        }
-      }
     }
 
     .result table tr td {
@@ -55,5 +51,22 @@
   .multiply {
     margin: 0 80rem;
     display: block;
+  }
+}
+
+table {
+  margin: 0 20px;
+  td {
+    border: 2px solid white;
+    padding: 1rem;
+  }
+
+  tr td {
+    height: 30px;
+    width: 30px;
+    max-width: 100px;
+    input {
+      max-width: 80px;
+    }
   }
 }

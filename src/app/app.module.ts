@@ -15,6 +15,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { CustomButtonComponent } from './components/custom-button/custom-button.component';
+import { TodoComponent } from './pages/todo/todo.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 const components = [
   AppComponent,
@@ -24,7 +26,8 @@ const components = [
   ErrorComponent,
   MatrixmultiplicatorComponent,
   NavbarComponent,
-  CustomButtonComponent
+  CustomButtonComponent,
+  TodoComponent
 ];
 
 const modules = [
@@ -38,7 +41,7 @@ const modules = [
 ];
 @NgModule({
   declarations: [...components],
-  imports: [...modules],
+  imports: [...modules, DragDropModule],
   providers: [WordslistService],
   bootstrap: [AppComponent]
 })

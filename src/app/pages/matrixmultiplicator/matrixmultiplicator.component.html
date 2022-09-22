@@ -1,54 +1,92 @@
 <div class="inputs">
-  <div>
+  <h1>Matrix multiplication</h1>
+  <div class="matrix-inputs-container">
     <form class="example-form">
-      <label for="sizeXA">Matriz A</label>
-      <mat-form-field class="example-full-width">
-        <mat-label>Columnas</mat-label>
-        <input matInput maxlength="3" placeholder="Inserte cantidad" type="number" name="sizeXA" id="sizeXA" [(ngModel)]="sizeXA">
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <mat-label>Filas</mat-label>
-        <input matInput maxlength="3" placeholder="Inserte cantidad" type="number" name="sizeYA" id="sizeYA" [(ngModel)]="sizeYA">
-      </mat-form-field>
-
-      <label for="sizeXB">Matriz B</label>
-      <mat-form-field class="example-full-width">
-        <mat-label>Columnas</mat-label>
-        <input matInput maxlength="3" placeholder="Inserte cantidad" type="number" name="sizeXB" id="sizeXB" [(ngModel)]="sizeXB">
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <mat-label>Filas</mat-label>
-        <input matInput maxlength="3" placeholder="Inserte cantidad" type="number" name="sizeYB" id="sizeYB" [(ngModel)]="sizeYB">
-      </mat-form-field>
+      <div class="matrix">
+        <label>Matrix A</label>
+        <div>
+          <label>Columns</label>
+          <div class="text-input">
+            <span [ngClass]="{'complete': sizeXA !== null}">
+              <input type="number" placeholder="Insert number" name="sizeXA" [(ngModel)]="sizeXA">
+            </span>
+          </div>
+        </div>
+        <div>
+          <label>Rows</label>
+          <div class="text-input">
+            <span [ngClass]="{'complete': sizeYA !== null}">
+              <input type="number" placeholder="Insert number" name="sizeYA" [(ngModel)]="sizeYA">
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="matrix">
+        <label>Matrix A</label>
+        <div>
+          <label>Columns</label>
+          <div class="text-input">
+            <span [ngClass]="{'complete': sizeXB !== null}">
+              <input type="number" placeholder="Insert number" name="sizeXB" [(ngModel)]="sizeXB">
+            </span>
+          </div>
+        </div>
+        <div>
+          <label>Rows</label>
+          <div class="text-input">
+            <span [ngClass]="{'complete': sizeYB !== null}">
+              <input type="number" placeholder="Insert number" name="sizeYB" [(ngModel)]="sizeYB">
+            </span>
+          </div>
+        </div>
+      </div>
     </form>
   </div>
   <h1 class="error" *ngIf="error">{{msgError}}</h1>
-  <app-custom-button [text]="'Crear'" (click)="createMatrix()" type="submit"></app-custom-button>
+  <app-custom-button [text]="'Create'" (click)="createMatrix()" type="submit"></app-custom-button>
 
 </div>
 <div *ngIf="showMatriz" class="resultcontainer">
   <div class="matriz">
     <div class="inputs">
       <table>
-        <tr *ngFor="let i of numSequence(sizeYA)">
-          <td *ngFor="let j of numSequence(sizeXA)">X</td>
+        <tr *ngFor="let y of matrixA; let posY = index">
+          <td *ngFor="let x of y; let posX = index">
+            <div class="text-input">
+              <span [ngClass]="{'complete': x !== null && x !== undefined}">
+                <input type="number" [placeholder]="posY + ' - ' + posX" [name]="posY + ' - ' + posX" [(ngModel)]="matrixA[posY][posX]">
+              </span>
+            </div>
+          </td>
         </tr>
       </table>
       <table>
-        <tr *ngFor="let i of numSequence(sizeYB)">
-          <td *ngFor="let j of numSequence(sizeXB)">X</td>
+        <tr *ngFor="let y of matrixB; let posY = index">
+          <td *ngFor="let x of y; let posX = index">
+            <div class="text-input">
+              <span [ngClass]="{'complete': x !== null && x !== undefined}">
+                <input type="number" [placeholder]="posY + ' - ' + posX" [name]="posY + ' - ' + posX" [(ngModel)]="matrixB[posY][posX]">
+              </span>
+            </div>
+          </td>
         </tr>
       </table>
-    </div>
-    <div class="result" *ngIf="result">
-      <table>
-        <tr *ngFor="let i of numSequence(sizeYA)">
-          <td *ngFor="let j of numSequence(sizeXB)">X</td>
-        </tr>
-      </table>
+
     </div>
   </div>
-<!--  <button class="multiply" type="submit" (click)="multiply()">Multiplicar</button>-->
-  <app-custom-button [text]="'Multiplicar'" (click)="multiply()" type="submit"></app-custom-button>
-
+  <!--  <button class="multiply" type="submit" (click)="multiply()">Multiplicar</button>-->
+  <app-custom-button [text]="'Multiply'" (click)="multiplyButton()" type="submit"></app-custom-button>
+  <div class="result" *ngIf="result">
+    <table>
+      <tr *ngFor="let y of matrixResult">
+        <td *ngFor="let x of y">
+          <div class="text-input">
+            <span>
+              {{x}}
+            </span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
 </div>
