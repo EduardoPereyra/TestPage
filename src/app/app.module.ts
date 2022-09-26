@@ -17,6 +17,9 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
 import { CustomButtonComponent } from './components/custom-button/custom-button.component';
 import { TodoComponent } from './pages/todo/todo.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { QuizComponent } from './pages/quiz/quiz.component';
+import {QuizService} from './service/quiz.service';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 const components = [
   AppComponent,
@@ -27,7 +30,8 @@ const components = [
   MatrixmultiplicatorComponent,
   NavbarComponent,
   CustomButtonComponent,
-  TodoComponent
+  TodoComponent,
+  QuizComponent
 ];
 
 const modules = [
@@ -37,12 +41,22 @@ const modules = [
   NgbModule,
   BrowserAnimationsModule,
   MatInputModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  DragDropModule,
+  HttpClientModule,
+  BrowserAnimationsModule
 ];
+
+const services = [
+  WordslistService,
+  QuizService,
+  HttpClient
+];
+
 @NgModule({
   declarations: [...components],
-  imports: [...modules, DragDropModule],
-  providers: [WordslistService],
+  imports: [...modules],
+  providers: [...services],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

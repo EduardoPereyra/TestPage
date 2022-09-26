@@ -1,0 +1,33 @@
+<div *ngIf="loading" class="lds-roller">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+<div class="container" *ngIf="!loading">
+  <div *ngFor="let question of questions; let i = index" class="question">
+    <p class="question-text">{{atob(question.question)}}</p>
+    <div class="answers">
+      <ng-container *ngFor="let answer of question.answers; let a = index">
+        <div class="answer">
+          <input type="radio" [id]="i+'-'+a" [name]="i+'-'+a" [value]="answer"
+                 [(ngModel)]="question.response" [disabled]="submitted">
+          <label [for]="i+'-'+a">{{answer}}</label>
+        </div>
+      </ng-container>
+      <span class="correctAnswer"
+            *ngIf="submitted">Correct answer:<span
+        [ngClass]="{'correct': question.response === atob(question.correct_answer)}">
+        {{atob(question.correct_answer)}}</span></span>
+    </div>
+  </div>
+  <div>
+    <h1 *ngIf="submitted">Total correct answers: {{correctAnswersCount}}</h1>
+  </div>
+  <app-custom-button *ngIf="!submitted" class="submit" [text]="'Submit'" (click)="submit()" type="submit"></app-custom-button>
+  <app-custom-button *ngIf="submitted" class="submit" [text]="'Reset'" (click)="reset()" type="submit"></app-custom-button>
+</div>

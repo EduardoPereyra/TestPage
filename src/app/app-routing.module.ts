@@ -6,6 +6,7 @@ import { DecimaltobinaryComponent } from './pages/decimaltobinary/decimaltobinar
 import { StringreverserComponent } from './pages/stringreverser/stringreverser.component';
 import { MatrixmultiplicatorComponent } from './pages/matrixmultiplicator/matrixmultiplicator.component';
 import {TodoComponent} from './pages/todo/todo.component';
+import {QuizComponent} from './pages/quiz/quiz.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,10 @@ const routes: Routes = [
   {
     path: 'todoapp',
     component: TodoComponent
+  },
+  {
+    path: 'quizapp',
+    component: QuizComponent
   },
   {
     path: '**',
