@@ -7,6 +7,7 @@ import { StringreverserComponent } from './pages/stringreverser/stringreverser.c
 import { MatrixmultiplicatorComponent } from './pages/matrixmultiplicator/matrixmultiplicator.component';
 import {TodoComponent} from './pages/todo/todo.component';
 import {QuizComponent} from './pages/quiz/quiz.component';
+import {CurrencyConverterComponent} from './pages/currency-converter/currency-converter.component';
 
 const routes: Routes = [
   {
@@ -40,6 +41,10 @@ const routes: Routes = [
   {
     path: 'quizapp',
     component: QuizComponent
+  },
+  {
+    path: 'currencyconverter',
+    component: CurrencyConverterComponent
   },
   {
     path: '**',

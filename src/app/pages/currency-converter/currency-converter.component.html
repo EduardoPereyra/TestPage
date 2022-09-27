@@ -1,0 +1,36 @@
+<div *ngIf="loading" class="lds-roller">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+<div class="container" *ngIf="!loading">
+  <div class="currencies">
+    <label for="from">From:</label>
+    <select id="from" name="from" [(ngModel)]="from">
+      <option *ngFor="let item of symbols" [value]="item[0]">{{item[1]}}</option>
+    </select>
+  </div>
+  <div class="currencies">
+    <label for="to">To:</label>
+    <select id="to" name="to" [(ngModel)]="to">
+      <option *ngFor="let item of symbols" [value]="item[0]">{{item[1]}}</option>
+    </select>
+  </div>
+  <div class="currencies amount">
+    <label>Amount</label>
+    <div class="text-input">
+            <span [ngClass]="{'complete': amount !== null}">
+              <input type="number" placeholder="Insert amount" name="amount" [(ngModel)]="amount">
+            </span>
+    </div>
+  </div>
+  <app-custom-button [text]="'Convert'" (click)="convert()" type="submit"></app-custom-button>
+  <div class="result" *ngIf="converted">
+    <h1><span>{{to}}</span> {{result | number:'0.0-2'}}</h1>
+  </div>
+</div>

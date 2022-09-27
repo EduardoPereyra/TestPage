@@ -20,6 +20,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import { QuizComponent } from './pages/quiz/quiz.component';
 import {QuizService} from './service/quiz.service';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { CurrencyConverterComponent } from './pages/currency-converter/currency-converter.component';
 
 const components = [
   AppComponent,
@@ -31,7 +32,8 @@ const components = [
   NavbarComponent,
   CustomButtonComponent,
   TodoComponent,
-  QuizComponent
+  QuizComponent,
+  CurrencyConverterComponent
 ];
 
 const modules = [
