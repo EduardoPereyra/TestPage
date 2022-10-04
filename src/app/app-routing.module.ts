@@ -8,6 +8,7 @@ import { MatrixmultiplicatorComponent } from './pages/matrixmultiplicator/matrix
 import {TodoComponent} from './pages/todo/todo.component';
 import {QuizComponent} from './pages/quiz/quiz.component';
 import {CurrencyConverterComponent} from './pages/currency-converter/currency-converter.component';
+import {SpeedTypingTestComponent} from './pages/speed-typing-test/speed-typing-test.component';
 
 const routes: Routes = [
   {
@@ -45,6 +46,10 @@ const routes: Routes = [
   {
     path: 'currencyconverter',
     component: CurrencyConverterComponent
+  },
+  {
+    path: 'speedtypingtest',
+    component: SpeedTypingTestComponent
   },
   {
     path: '**',

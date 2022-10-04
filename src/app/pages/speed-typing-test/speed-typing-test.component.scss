@@ -1,0 +1,47 @@
+.container {
+  text-align: center;
+  margin: 2rem auto auto;
+
+  app-custom-button {
+    padding: 20px;
+    font-size: 1.5rem;
+  }
+
+  ul {
+  margin-top: 50px;
+    li {
+      text-align: left;
+      font-size: 2rem;
+      list-style-type: none;
+    }
+  }
+
+  .titles li {
+    font-size: 16px;
+    span {
+      color: var(--success-color);
+      font-size: 18px;
+    }
+  }
+
+  .correct {
+    color: var(--success-color);
+  }
+
+  .typing-container {
+    display: flex;
+    justify-items: center;
+    margin-top: 5vh;
+
+    textarea {
+      width: 80vw;
+      height: 15vh;
+      font-size: 16px;
+      padding: 8px 20px 8px 10px;
+      border: 1px solid var(--primary-text-color);
+      background-color: transparent;
+      color: var(--primary-text-color);
+      border-radius: 10px;
+    }
+  }
+}

@@ -21,6 +21,8 @@ import { QuizComponent } from './pages/quiz/quiz.component';
 import {QuizService} from './service/quiz.service';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { CurrencyConverterComponent } from './pages/currency-converter/currency-converter.component';
+import { SpeedTypingTestComponent } from './pages/speed-typing-test/speed-typing-test.component';
+import {SentenceGeneratorService} from './service/sentence-generator.service';
 
 const components = [
   AppComponent,
@@ -33,7 +35,8 @@ const components = [
   CustomButtonComponent,
   TodoComponent,
   QuizComponent,
-  CurrencyConverterComponent
+  CurrencyConverterComponent,
+  SpeedTypingTestComponent
 ];
 
 const modules = [
@@ -51,6 +54,7 @@ const modules = [
 
 const services = [
   WordslistService,
+  SentenceGeneratorService,
   QuizService,
   HttpClient
 ];

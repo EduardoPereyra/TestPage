@@ -9,6 +9,7 @@
   <div></div>
 </div>
 <div class="container" *ngIf="!loading">
+  <h1>Speed typing test</h1>
   <div *ngFor="let question of questions; let i = index" class="question">
     <p class="question-text">{{atob(question.question)}}</p>
     <div class="answers">

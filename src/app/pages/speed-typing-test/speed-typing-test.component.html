@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>Speed typing test</h1>
+  <div>
+    <app-custom-button [text]="'Spanish'" [backgroundColor]="'#533483'" (click)="toggleFlip('english')"
+                       *ngIf="language === 'spanish'"></app-custom-button>
+    <app-custom-button [text]="'English'" [backgroundColor]="'#533483'" (click)="toggleFlip('spanish')"
+                       *ngIf="language === 'english'"></app-custom-button>
+  </div>
+  <app-custom-button [text]="'Generate'" (click)="generateSentence()" type="submit"></app-custom-button>
+  <ul class="no-select">
+    <li><span *ngFor="let word of sentences" [ngClass]="{'correct': word.correct}">{{word.word}} </span></li>
+  </ul>
+  <ul class="titles" *ngIf="sentences.length">
+    <li>Time: <span>{{time | date:'mm:ss:SS'}}</span></li>
+    <li>Amount words: <span>{{sentences.length}}</span></li>
+    <li>Amount typed: <span>{{correctWords}}</span></li>
+  </ul>
+  <div class="typing-container" *ngIf="sentences.length">
+    <textarea [(ngModel)]="typingText" (ngModelChange)="checkTyping()"
+      [disabled]="correctWords === sentences.length"></textarea>
+  </div>
+  <ul class="times">
+    <li *ngFor="let historicalTime of historicalTimes">
+      <span>- {{historicalTime | date:'mm:ss:SS'}}</span>
+    </li>
+  </ul>
+</div>
