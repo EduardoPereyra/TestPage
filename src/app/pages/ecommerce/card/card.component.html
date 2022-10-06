@@ -1,0 +1,25 @@
+<div class="card">
+  <div class="best-seller" *ngIf="product.rating.rate > 4">
+    <span>Best Seller</span>
+  </div>
+  <div class="card-image">
+    <img [src]="product.image" alt="product-image">
+  </div>
+  <div class="card-info">
+    <div class="starts-container scale-up-hor-center">
+      <div class="stars">
+        <!--      <ngb-rating [max]="5" [(rate)]="product.rating.rate" readonly="true"></ngb-rating>-->
+        <ng-template #t let-fill="fill">
+          <span class="star" [class.full]="fill === 100">
+            <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+          </span>
+        </ng-template>
+        <ngb-rating [max]="5" [(rate)]="product.rating.rate" [starTemplate]="t" readonly="true"></ngb-rating>
+      </div>
+    </div>
+    <h3>$ {{product.addedprice}}</h3>
+    <h1>$ {{product.price.toFixed(2)}}</h1>
+    <p *ngIf="product.price > 100 || product.rating.rate > 4">Free shipping</p>
+    <h2>{{product.title}}</h2>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<app-custom-button [text]="'Back'" (click)="selectProduct()" type="submit"></app-custom-button>
+<div class="card">
+  <div class="card-image">
+    <img [src]="product.image" alt="product-image">
+  </div>
+  <div class="card-info">
+    <div class="starts-container">
+      <div class="stars">
+        <!--      <ngb-rating [max]="5" [(rate)]="product.rating.rate" readonly="true"></ngb-rating>-->
+        <ng-template #t let-fill="fill">
+          <span class="star" [class.full]="fill === 100">
+            <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+          </span>
+        </ng-template>
+        <h4>{{product.rating.count}} users</h4>
+        <ngb-rating [max]="5" [(rate)]="product.rating.rate" [starTemplate]="t" readonly="true"></ngb-rating>
+      </div>
+    </div>
+    <h3>$ {{product.addedprice}}</h3>
+    <h1>$ {{product.price.toFixed(2)}}</h1>
+    <p *ngIf="product.price > 100 || product.rating.rate > 4">Free shipping</p>
+    <h2>{{product.title}}</h2>
+    <h4>{{product.description}}</h4>
+    <div class="shop">
+      <button (click)="addToCart()">
+        <img src="assets/images/icons/add-to-cart.png" alt="add-to-cart">
+      </button>
+    </div>
+  </div>
+</div>

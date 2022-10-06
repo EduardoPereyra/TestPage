@@ -1,0 +1,32 @@
+<div class="container">
+  <h1>Shopping cart</h1>
+  <ul class="card-list">
+    <li *ngIf="productList.length === 0" class="no-products">
+      <span>No products</span>
+    </li>
+    <li *ngFor="let product of productList; let i = index">
+      <div class="card">
+        <div class="card-image">
+          <img [src]="product.image" alt="product-image">
+        </div>
+        <div class="card-info">
+          <div class="close" (click)="removeProduct(i)">
+            <span>X</span>
+          </div>
+          <h1>{{product.title}}</h1>
+          <div class="price-amount-container">
+            <h2>Total: $ {{(product.price.toFixed(2) * product.amount).toFixed(2)}}</h2>
+            <div class="amount">
+              <h2>Amount:</h2>
+              <div>
+                <button (click)="removeItem(i)">-</button>
+                <h2>{{product.amount}}</h2>
+                <button (click)="addItem(i)">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,8 @@
+<div>
+  <app-item-list (selectedProduct)="selectProduct($event)" *ngIf="product === null"></app-item-list>
+  <app-product-info *ngIf="product !== null" [product]="product"
+                    (selectedProduct)="selectProduct($event)"
+                    (addingToCart)="addingToCart($event)">
+  </app-product-info>
+  <app-shop-cart></app-shop-cart>
+</div>

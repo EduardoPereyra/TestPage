@@ -8,6 +8,6 @@
   </div>
   <app-custom-button [text]="'Generate'" (click)="generateSentence()" type="submit"></app-custom-button>
   <ul>
-    <li *ngFor="let sentence of sentences">{{sentence}}</li>
+    <li><span *ngFor="let sentence of sentences">{{sentence}} </span></li>
   </ul>
 </div>

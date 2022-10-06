@@ -1,0 +1,11 @@
+div {
+  display: flex;
+  padding: 30px 20px;
+  app-item-list, app-product-info {
+    width: 70vw;
+  }
+
+  app-shop-cart {
+    width: 30vw;
+  }
+}

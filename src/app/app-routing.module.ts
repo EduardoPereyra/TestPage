@@ -9,6 +9,7 @@ import {TodoComponent} from './pages/todo/todo.component';
 import {QuizComponent} from './pages/quiz/quiz.component';
 import {CurrencyConverterComponent} from './pages/currency-converter/currency-converter.component';
 import {SpeedTypingTestComponent} from './pages/speed-typing-test/speed-typing-test.component';
+import {EcommerceComponent} from './pages/ecommerce/ecommerce.component';
 
 const routes: Routes = [
   {
@@ -50,6 +51,10 @@ const routes: Routes = [
   {
     path: 'speedtypingtest',
     component: SpeedTypingTestComponent
+  },
+  {
+    path: 'ecommerceapp',
+    component: EcommerceComponent
   },
   {
     path: '**',

@@ -1,0 +1,17 @@
+<div *ngIf="loading" class="lds-roller">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+<ul class="card-list" *ngIf="!loading"
+    infinite-scroll
+    (scrolled)="loadProducts()" infiniteScrollThrottle="500">
+  <li *ngFor="let product of productList">
+    <app-card [product]="product" (click)="selectProduct(product)"></app-card>
+  </li>
+</ul>
