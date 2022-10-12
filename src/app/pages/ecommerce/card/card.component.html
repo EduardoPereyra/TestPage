@@ -17,7 +17,7 @@
         <ngb-rating [max]="5" [(rate)]="product.rating.rate" [starTemplate]="t" readonly="true"></ngb-rating>
       </div>
     </div>
-    <h3>$ {{product.addedprice}}</h3>
+    <h3 *ngIf="product.addedprice">$ {{product.addedprice}}</h3>
     <h1>$ {{product.price.toFixed(2)}}</h1>
     <p *ngIf="product.price > 100 || product.rating.rate > 4">Free shipping</p>
     <h2>{{product.title}}</h2>

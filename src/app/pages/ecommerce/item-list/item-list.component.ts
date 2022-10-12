@@ -10,14 +10,31 @@ export class ItemListComponent implements OnInit {
 
   @Output() selectedProduct = new EventEmitter<any>();
   productList: any[];
+  productFilteredList: any[];
+  categories: any[];
+  categorySelected: string;
   loading: boolean;
 
-  constructor(private ecommerceService: FakeStoreService) { }
+  constructor(private ecommerceService: FakeStoreService) {
+  }
 
   ngOnInit(): void {
     this.productList = [];
+    this.productFilteredList = [];
+    this.categories = [];
+    this.categorySelected = 'all';
     this.loading = true;
-    this.loadProducts();
+    this.getAllCategories();
+  }
+
+  getAllCategories(): void {
+    this.ecommerceService.getAllCategories().subscribe(
+      data => {
+        this.categories.push('all');
+        this.categories.push(...data);
+        this.loadProducts();
+      }
+    );
   }
 
   loadProducts(): void {
@@ -25,13 +42,26 @@ export class ItemListComponent implements OnInit {
       this.ecommerceService.getProducts().subscribe(
         data => {
           this.productList.push(...this.shuffle(data));
-          console.log(this.productList);
           this.productList.forEach(product => {
-            product.addedprice = this.addedPrice(product.price);
+            if (Math.random() > .4) {
+              product.addedprice = this.addedPrice(product.price);
+            }
           });
+          this.filter();
+          /*          this.categories.push('all');
+                    this.categories.push(...new Set(this.productList.map(item => item.category)));*/
           this.loading = false;
         }
-      );
+      )
+      ;
+    }
+  }
+
+  filter(): void {
+    if (this.categorySelected !== 'all') {
+      this.productFilteredList = this.productList.filter(product => product.category === this.categorySelected);
+    } else {
+      this.productFilteredList = this.productList;
     }
   }
 
@@ -39,7 +69,9 @@ export class ItemListComponent implements OnInit {
     return (price + (Math.random() * 50)).toFixed(2);
   }
 
-  shuffle(array): any[] {
+  shuffle(array)
+    :
+    any[] {
     let currentIndex = array.length;
     let randomIndex = 0;
 
@@ -58,7 +90,9 @@ export class ItemListComponent implements OnInit {
     return array;
   }
 
-  selectProduct(product): void {
+  selectProduct(product)
+    :
+    void {
     this.selectedProduct.emit(product);
   }
 }

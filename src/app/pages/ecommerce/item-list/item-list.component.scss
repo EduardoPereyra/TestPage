@@ -1,16 +1,53 @@
-.card-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 14px 10px;
-  grid-auto-rows: minmax(100px, auto);
+.list-container {
   padding: 0 20px;
-  text-decoration: none;
 
-  li {
-    list-style-type: none;
+  h1 {
+    font-size: 8rem;
+    height: 100px;
+    font-weight: bold;
+    background: -webkit-linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+  }
 
-    app-card {
-      cursor: pointer;
+  .categories {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: 10px;
+
+    label {
+      color: var(--primary-text-color);
+      font-size: 1.5rem;
+    }
+    select {
+      background-color: var(--background-color);
+      color: var(--primary-text-color);
+      padding: 5px;
+    }
+
+    button:hover {
+      background-color: var(--primary-text-color);
+      color: var(--secondary-text-color);
+    }
+  }
+
+  .card-list {
+    display: grid;
+    padding: 20px 0;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 14px 10px;
+    grid-auto-rows: minmax(100px, auto);
+    text-decoration: none;
+
+    li {
+      list-style-type: none;
+
+      app-card {
+        cursor: pointer;
+      }
     }
   }
 }

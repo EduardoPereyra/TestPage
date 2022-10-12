@@ -29,4 +29,22 @@ export class FakeStoreService {
           }
         ));
   }
+
+  getAllCategories(): Observable<any> {
+    const url = this.apiUrl + `/products/categories`;
+    return this.httpClient.get(url)
+      .pipe(retryWhen(_ => {
+        return interval(5000).pipe(
+          flatMap(count => count === 2 ? throwError('Request time out') : of(count))
+        );
+      }))
+      .pipe(
+        map((report: any) => {
+          return report;
+        }),
+        catchError((err: Error) => {
+            return throwError(err);
+          }
+        ));
+  }
 }

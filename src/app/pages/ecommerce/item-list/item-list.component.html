@@ -8,10 +8,19 @@
   <div></div>
   <div></div>
 </div>
-<ul class="card-list" *ngIf="!loading"
+<div class="list-container" *ngIf="!loading"
     infinite-scroll
     (scrolled)="loadProducts()" infiniteScrollThrottle="500">
-  <li *ngFor="let product of productList">
-    <app-card [product]="product" (click)="selectProduct(product)"></app-card>
-  </li>
-</ul>
+  <h1>Black Friday</h1>
+  <div class="categories">
+    <label for="from">Category</label>
+    <select id="from" name="from" [(ngModel)]="categorySelected" (ngModelChange)="filter()">
+      <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+    </select>
+  </div>
+  <ul class="card-list">
+    <li *ngFor="let product of productFilteredList">
+      <app-card [product]="product" (click)="selectProduct(product)"></app-card>
+    </li>
+  </ul>
+</div>
